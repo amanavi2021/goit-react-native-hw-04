@@ -8,7 +8,7 @@ import RegistrationScreen from "./screens/RegistrationScreen";
 import LoginScreen from "./screens/LoginScreen";
 import PostsScreen from "./screens/PostsScreen";
 import Home from "./screens/Home";
-import AddSvg from "./assets/images/add.svg";
+// import AddSvg from "./assets/images/add.svg";
 import LogOutSvg from "./assets/images/log-out.svg";
 
 export default function App() {
@@ -26,18 +26,36 @@ export default function App() {
   return (
     <NavigationContainer>
       <MainStack.Navigator>
-        <MainStack.Screen name="Registration" component={RegistrationScreen} />
-        <MainStack.Screen name="Login" component={LoginScreen} />
-        <MainStack.Screen name="Home" component={Home} />
+        <MainStack.Screen
+          name="Registration"
+          component={RegistrationScreen}
+          options={{
+            headerShown: false,
+          }}
+        />
+        <MainStack.Screen
+          name="Login"
+          component={LoginScreen}
+          options={{
+            headerShown: false,
+          }}
+        />
+        <MainStack.Screen
+          name="Home"
+          component={Home}
+          options={{
+            headerShown: false,
+          }}
+        />
         <MainStack.Screen
           name="Posts"
           component={PostsScreen}
           options={{
             title: "Публікації",
             headerTintColor: "#212121",
+            headerTitleAlign: "center",
             headerTitleStyle: {
               fontSize: 17,
-              fontFamily: "Roboto-Medium",
             },
             headerRight: () => (
               <LogOutSvg
