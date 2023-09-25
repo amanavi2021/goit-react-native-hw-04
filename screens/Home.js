@@ -6,6 +6,9 @@ import PostsScreen from "./PostsScreen";
 import CreatePostsScreen from "./CreatePostsScreen";
 import ProfileScreen from "./ProfileScreen";
 import LogOutSvg from "../assets/images/log-out.svg";
+import GridSvg from "../assets/images/grid.svg";
+import UserSvg from "../assets/images/user.svg";
+import UnionSvg from "../assets/images/union.svg";
 
 const Tabs = createBottomTabNavigator();
 
@@ -13,15 +16,34 @@ export default function Home() {
   const navigation = useNavigation();
   return (
     <Tabs.Navigator
-    // screenOptions={({ route }) => ({
-    //   tabBarIcon: ({ focused, color, size }) => {
-    //     let iconName;
-    //   },
-    // })}
-    // tabBarOptions={{
-    //   activeTintColor: "tomato",
-    //   inactiveTintColor: "gray",
-    // }}
+      screenOptions={({ route }) => ({
+        tabBarIcon: ({ focused, color, size }) => {
+          let iconName;
+          if (route.name === "Posts") {
+            iconName = "";
+            return <GridSvg />;
+          }
+          if (route.name === "CreatePosts") {
+            iconName = "";
+            return (
+              <View style={styles.unionSvgWrapper}>
+                <UnionSvg />
+              </View>
+            );
+          }
+          if (route.name === "Profile") {
+            iconName = "";
+            return <UserSvg />;
+          }
+        },
+        tabBarLabelStyle: {
+          display: "none",
+        },
+      })}
+      // tabBarOptions={{
+      //   activeTintColor: "tomato",
+      //   inactiveTintColor: "gray",
+      // }}
     >
       <Tabs.Screen
         name="Posts"
@@ -61,13 +83,20 @@ export default function Home() {
           headerShown: false,
         }}
       />
-      {/* <Text>Home page</Text>
-      <TouchableOpacity
-        activeOpacity={0.8}
-        onPress={() => navigation.navigate("Posts")}
-      >
-        <Text>Публікації</Text>
-      </TouchableOpacity> */}
     </Tabs.Navigator>
   );
 }
+
+const styles = StyleSheet.create({
+  unionSvgWrapper: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    marginTop: 9,
+    marginBottom: 9,
+    borderRadius: 20,
+    backgroundColor: "#FF6C00",
+    width: 70,
+    height: 40,
+  },
+});

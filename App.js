@@ -6,7 +6,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import { useFonts } from "expo-font";
 import RegistrationScreen from "./screens/RegistrationScreen";
 import LoginScreen from "./screens/LoginScreen";
-import PostsScreen from "./screens/PostsScreen";
+// import PostsScreen from "./screens/PostsScreen";
 import Home from "./screens/Home";
 // import AddSvg from "./assets/images/add.svg";
 import LogOutSvg from "./assets/images/log-out.svg";
@@ -47,7 +47,7 @@ export default function App() {
             headerShown: false,
           }}
         />
-        <MainStack.Screen
+        {/* <MainStack.Screen
           name="Posts"
           component={PostsScreen}
           options={{
@@ -65,7 +65,7 @@ export default function App() {
               />
             ),
           }}
-        />
+        /> */}
       </MainStack.Navigator>
     </NavigationContainer>
   );
