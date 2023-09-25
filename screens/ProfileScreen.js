@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import { useNavigation } from "@react-navigation/native";
+import React from "react";
 import {
   StyleSheet,
   Text,
@@ -12,19 +11,12 @@ import DeleteSvg from "../assets/images/delete.svg";
 import LogOutSvg from "../assets/images/log-out.svg";
 import AvatarImage from "../assets/images/avatar.png";
 
-const initialState = {
-  login: "",
-  email: "",
-  password: "",
-};
-
-export default function RegistrationScreen() {
+export default function ProfileScreen() {
   return (
     <View style={styles.container}>
       <View style={styles.wrapper}>
         <View style={styles.avatarWrapper}>
           <Image style={styles.avatar} source={AvatarImage} />
-          {/* <AddSvg style={styles.addIcon} width={25} height={25} /> */}
           <DeleteSvg style={styles.deleteIcon} width={37} height={37} />
           <LogOutSvg style={styles.logOutIcon} />
         </View>
